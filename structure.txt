@@ -1,0 +1,22 @@
+qtm_project/
+│
+├── cli/            # CLI-specific code
+│   ├── __init__.py
+│   ├── main.py     # Entry point for the CLI application
+│   └── utils.py    # CLI-specific utilities
+│
+├── web/            # Web-specific code
+│   ├── __init__.py
+│   ├── app.py      # Entry point for the web application
+│   ├── templates/  # HTML templates for the web UI
+│   └── static/     # Static files (CSS, JS, images)
+│
+├── core/           # Core logic shared between CLI and Web
+│   ├── __init__.py
+│   ├── models.py   # Database models and business logic
+│   └── services.py # Core services (e.g., task management)
+│
+└── tests/          # Tests for both CLI and web
+    ├── test_cli.py
+    ├── test_web.py
+    └── ...
