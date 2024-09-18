@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 """
 web.app
 =======
@@ -13,25 +14,52 @@ Routes:
 """
 
 
-from flask import Flask, render_template
-from core.services import create_task, view_tasks
+import os
+import logging
+from flask import Flask, redirect, render_template, request
+from core.services import create_task, view_tasks  # type: ignore
 
 
+# Initialize the Flask application
 app = Flask(__name__)
 
 
+# Set up logging
+logging.basicConfig(level=logging.INFO)
+app.logger.setLevel(logging.INFO)
+
+
+# Configuration management
+app.config['HOST'] = os.getenv('FLASK_HOST', '0.0.0.0')
+app.config['PORT'] = int(os.getenv('FLASK_PORT', 5000))
+
+
+# Define routes
 @app.route('/')
 def home():
-    tasks = view_tasks()
+    try:
+        tasks = view_tasks()
+    except Exception as e:
+        # Log the error and return an error page or message
+        app.logger.error(f"Error fetching tasks: {e}")
+        return render_template('error.html', message="Error fetching tasks")
     return render_template('index.html', tasks=tasks)
 
 
 @app.route('/create', methods=['POST'])
 def create():
-    task_name = request.form['task_name']
-    create_task(task_name)
+    task_name = request.form.get('task_name', '').strip()
+    if not task_name:
+        return render_template('error.html', message="Task name cannot be empty")
+    try:
+        create_task(task_name)
+    except Exception as e:
+        # Log the error and return an error page or message
+        app.logger.error(f"Error creating task: {e}")
+        return render_template('error.html', message="Error creating task")
     return redirect('/')
 
 
+# Run the app
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host=app.config['HOST'], port=app.config['PORT'])

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quality Time Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container"></div>
+            <h1>Quality Time Management</h1>
+        </div>
+    </header>
+    <div class="container">
+        <form id="task-form">
+            <input type="text" id="task-input" placeholder="Enter a new task...">
+            <input type="submit" value="Add Task">
+        </form>
+        <div id="tasks">
+            <div id="task-list">
+                <h2>Tasks for the Week</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sunday</th>
+                            <th>Monday</th>
+                            <th>Tuesday</th>
+                            <th>Wednesday</th>
+                            <th>Thursday</th>
+                            <th>Friday</th>
+                            <th>Saturday</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="checkbox" id="task1">
+                                <label for="task1">Task 1</label>
+                            </td>
+                            <td>
+                                <input type="checkbox" id="task2">
+                                <label for="task2">Task 2</label>
+                            </td>
+                            <td>
+                                <input type="checkbox" id="task3">
+                                <label for="task3">Task 3</label>
+                            </td>
+                            <td>
+                                <input type="checkbox" id="task4">
+                                <label for="task4">Task 4</label>
+                            </td>
+                            <td>
+                                <input type="checkbox" id="task5">
+                                <label for="task5">Task 5</label>
+                            </td>
+                            <td>
+                                <input type="checkbox" id="task6">
+                                <label for="task6">Task 6</label>
+                            </td>
+                            <td>
+                                <input type="checkbox" id="task7">
+                                <label for="task7">Task 7</label>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
