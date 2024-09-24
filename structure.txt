@@ -1,36 +1,30 @@
-
 QTM/
-├── index.html
-├── about.html
-├── contact.html
-├── pages/
+│
+├── frontend/
+│   ├── index.html
 │   ├── login.html
 │   ├── signup.html
 │   ├── dashboard.html
-│   ├── profile.html
-│   └── settings.html
-├── css/
-│   ├── main.css
-│   └── pages/
-│       ├── login.css
-│       ├── signup.css
-│       ├── dashboard.css
-│       ├── profile.css
-│       └── settings.css
-├── js/
-│   ├── main.js
-│   └── pages/
-│       ├── login.js
-│       ├── signup.js
-│       ├── dashboard.js
-│       ├── profile.js
-│       └── settings.js
-├── images/
-│   ├── logo.png
-│   └── icons/
-│       ├── home.svg
-│       ├── user.svg
-│       └── settings.svg
-└── assets/
-    ├── fonts/
-    └── styles/
+│   ├── css/
+│   │   ├── main.css
+│   │   └── styles/
+│   │       ├── header.css
+│   │       └── footer.css
+│   └── js/
+│       ├── main.js
+│       └── form-validation.js
+│
+├── backend/
+│   ├── app.py
+│   ├── routes.py
+│   ├── models.py
+│   ├── database.py
+│   └── requirements.txt
+│
+├── tests/
+│   ├── test_app.py
+│   └── test_models.py
+│
+├── .gitignore
+├── README.md
+└── requirements.txt
